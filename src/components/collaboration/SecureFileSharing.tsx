@@ -346,7 +346,7 @@ export function SecureFileSharing() {
           })}
         </TabsContent>
 
-        <TabsContent value="documents" className="space-y-4">
+        <TabsContent value="documents" className="grid grid-cols-1 lg:grid-cols-2 gap-4">
           {filteredResources
             .filter(resource => resource.type === 'document')
             .map((resource) => {
@@ -413,7 +413,7 @@ export function SecureFileSharing() {
             })}
         </TabsContent>
 
-        <TabsContent value="links" className="space-y-4">
+        <TabsContent value="links" className="grid grid-cols-1 lg:grid-cols-2 gap-4">
           {filteredResources
             .filter(resource => resource.type === 'link')
             .map((resource) => {
@@ -480,7 +480,7 @@ export function SecureFileSharing() {
             })}
         </TabsContent>
 
-        <TabsContent value="templates" className="space-y-4">
+        <TabsContent value="templates" className="grid grid-cols-1 lg:grid-cols-2 gap-4">
           {filteredResources
             .filter(resource => resource.category === 'Modèles')
             .map((resource) => {

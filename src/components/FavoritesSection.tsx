@@ -110,7 +110,7 @@ export function FavoritesSection() {
           <TabsTrigger value="procedures">Procédures</TabsTrigger>
         </TabsList>
 
-        <TabsContent value="tous" className="space-y-4 mt-6">
+        <TabsContent value="tous" className="grid grid-cols-1 lg:grid-cols-2 gap-4 mt-6">
           {favorites.map((item) => (
             <Card key={item.id} className="border-l-4 border-l-emerald-500">
               <CardContent className="p-6">
@@ -225,8 +225,8 @@ export function FavoritesSection() {
         </TabsContent>
 
         {/* Other tabs content */}
-        <TabsContent value="codes" className="space-y-4 mt-6">
-          <div className="text-center py-8">
+        <TabsContent value="codes" className="grid grid-cols-1 lg:grid-cols-2 gap-4 mt-6">
+          <div className="col-span-full text-center py-8">
             <BookOpen className="w-16 h-16 mx-auto mb-4 text-gray-400" />
             <h3 className="text-lg font-semibold mb-2">Aucun code en favoris</h3>
             <p className="text-gray-600">
@@ -235,8 +235,8 @@ export function FavoritesSection() {
           </div>
         </TabsContent>
 
-        <TabsContent value="lois" className="space-y-4 mt-6">
-          <div className="text-center py-8">
+        <TabsContent value="lois" className="grid grid-cols-1 lg:grid-cols-2 gap-4 mt-6">
+          <div className="col-span-full text-center py-8">
             <Scale className="w-16 h-16 mx-auto mb-4 text-gray-400" />
             <h3 className="text-lg font-semibold mb-2">Aucune loi en favoris</h3>
             <p className="text-gray-600">
@@ -245,8 +245,8 @@ export function FavoritesSection() {
           </div>
         </TabsContent>
 
-        <TabsContent value="procedures" className="space-y-4 mt-6">
-          <div className="text-center py-8">
+        <TabsContent value="procedures" className="grid grid-cols-1 lg:grid-cols-2 gap-4 mt-6">
+          <div className="col-span-full text-center py-8">
             <FileText className="w-16 h-16 mx-auto mb-4 text-gray-400" />
             <h3 className="text-lg font-semibold mb-2">Aucune procédure en favoris</h3>
             <p className="text-gray-600">

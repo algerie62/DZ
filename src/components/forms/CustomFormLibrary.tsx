@@ -176,9 +176,8 @@ export function CustomFormLibrary() {
           <TabsTrigger value="recent">Récents</TabsTrigger>
         </TabsList>
 
-        <TabsContent value="templates" className="space-y-4">
-          <div className="grid gap-4">
-            {filteredTemplates.map((template) => (
+        <TabsContent value="templates" className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+          {filteredTemplates.map((template) => (
               <Card key={template.id} className="hover:shadow-md transition-shadow">
                 <CardContent className="pt-6">
                   <div className="flex items-start justify-between">
@@ -242,19 +241,18 @@ export function CustomFormLibrary() {
                 </CardContent>
               </Card>
             ))}
-          </div>
         </TabsContent>
 
-        <TabsContent value="favorites" className="space-y-4">
-          <div className="text-center py-8">
+        <TabsContent value="favorites" className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+          <div className="col-span-full text-center py-8">
             <Star className="w-12 h-12 text-yellow-500 mx-auto mb-4" />
             <h3 className="text-lg font-semibold mb-2">Vos favoris</h3>
             <p className="text-gray-600">Les modèles que vous avez marqués comme favoris apparaîtront ici</p>
           </div>
         </TabsContent>
 
-        <TabsContent value="recent" className="space-y-4">
-          <div className="text-center py-8">
+        <TabsContent value="recent" className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+          <div className="col-span-full text-center py-8">
             <Calendar className="w-12 h-12 text-blue-500 mx-auto mb-4" />
             <h3 className="text-lg font-semibold mb-2">Modèles récents</h3>
             <p className="text-gray-600">Vos modèles consultés récemment apparaîtront ici</p>

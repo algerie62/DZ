@@ -227,7 +227,7 @@ export function RGPDComplianceTab({ language = "fr" }: RGPDComplianceTabProps) {
             </div>
           </div>
 
-          <div className="space-y-3">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
             {consents.map((consent) => (
               <Card key={consent.id}>
                 <CardContent className="pt-4">
@@ -290,7 +290,7 @@ export function RGPDComplianceTab({ language = "fr" }: RGPDComplianceTabProps) {
             </div>
           </div>
 
-          <div className="space-y-3">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
             {rightsRequests.map((request) => (
               <Card key={request.id}>
                 <CardContent className="pt-4">
@@ -341,7 +341,7 @@ export function RGPDComplianceTab({ language = "fr" }: RGPDComplianceTabProps) {
             </Button>
           </div>
 
-          <div className="space-y-3">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
             {dataBreaches.map((breach) => (
               <Card key={breach.id}>
                 <CardContent className="pt-4">

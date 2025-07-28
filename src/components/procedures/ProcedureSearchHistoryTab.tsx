@@ -386,117 +386,130 @@ export function ProcedureSearchHistoryTab() {
           </CardTitle>
         </CardHeader>
         <CardContent>
-          <div className="space-y-4">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
             {filteredVersions.map((version) => (
-              <div key={version.id} className="border rounded-lg p-6 hover:shadow-md transition-shadow">
-                <div className="flex items-start justify-between mb-4">
-                  <div className="flex items-start gap-4 flex-1">
-                    <input
-                      type="checkbox"
-                      checked={selectedVersions.includes(version.id)}
-                      onChange={(e) => handleVersionSelection(version.id, e.target.checked)}
-                      className="mt-1"
-                    />
-                    <div className="flex-1">
-                      <div className="flex items-center gap-3 mb-2">
-                        <Search className="w-4 h-4 text-blue-600" />
-                        <h4 className="font-semibold text-lg text-gray-900">{version.searchQuery}</h4>
-                        <Badge variant="outline" className="text-xs">
-                          {version.version}
-                        </Badge>
-                        <Badge className={getTypeColor(version.type)}>
-                          {version.type}
-                        </Badge>
-                        <Badge className={getImpactColor(version.impact)}>
-                          Impact {version.impact}
-                        </Badge>
-                      </div>
-                      
-                      <p className="text-gray-600 mb-3">{version.changes}</p>
-                      
-                      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 text-sm mb-3">
-                        <div className="flex items-center gap-2">
-                          <User className="w-4 h-4 text-gray-500" />
-                          <span className="text-gray-600">Auteur:</span>
-                          <span className="font-medium">{version.author}</span>
+              <Card key={version.id} className="hover:shadow-lg transition-all duration-200 border-l-4 border-l-blue-500">
+                <CardHeader className="pb-3">
+                  <div className="flex items-start justify-between">
+                    <div className="flex items-start gap-3 flex-1">
+                      <input
+                        type="checkbox"
+                        checked={selectedVersions.includes(version.id)}
+                        onChange={(e) => handleVersionSelection(version.id, e.target.checked)}
+                        className="mt-1 rounded border-blue-300 text-blue-600 focus:ring-blue-500"
+                      />
+                      <div className="flex-1">
+                        <div className="flex items-center gap-2 mb-2">
+                          <Search className="w-5 h-5 text-blue-600" />
+                          <h4 className="font-bold text-lg text-gray-900 line-clamp-2">{version.searchQuery}</h4>
                         </div>
-                        <div className="flex items-center gap-2">
-                          <Building className="w-4 h-4 text-gray-500" />
-                          <span className="text-gray-600">Institution:</span>
-                          <span className="font-medium">{version.institution}</span>
-                        </div>
-                        <div className="flex items-center gap-2">
-                          <Calendar className="w-4 h-4 text-gray-500" />
-                          <span className="text-gray-600">Date:</span>
-                          <span className="font-medium">{version.date}</span>
-                        </div>
-                        <div className="flex items-center gap-2">
-                          <MapPin className="w-4 h-4 text-gray-500" />
-                          <span className="text-gray-600">Wilaya:</span>
-                          <span className="font-medium">{version.wilaya}</span>
-                        </div>
-                        <div className="flex items-center gap-2">
-                          <FileText className="w-4 h-4 text-gray-500" />
-                          <span className="text-gray-600">Résultats:</span>
-                          <span className="font-medium">{version.resultsCount}</span>
-                        </div>
-                        <div className="flex items-center gap-2">
-                          <Filter className="w-4 h-4 text-gray-500" />
-                          <span className="text-gray-600">Filtres:</span>
-                          <span className="font-medium">{version.filtersUsed}</span>
+                        <div className="flex flex-wrap gap-2">
+                          <Badge variant="secondary" className="text-xs font-medium">
+                            v{version.version}
+                          </Badge>
+                          <Badge className={getTypeColor(version.type)}>
+                            {version.type}
+                          </Badge>
+                          <Badge className={getImpactColor(version.impact)}>
+                            {version.impact}
+                          </Badge>
                         </div>
                       </div>
-
-                      {version.searchDuration && (
-                        <div className="flex items-center gap-4 text-sm text-gray-600 mb-3">
-                          <span className="flex items-center gap-1">
-                            <Clock className="w-3 h-3" />
-                            Durée: {version.searchDuration}
-                          </span>
-                          <span>Dernier accès: {version.lastAccessed}</span>
-                        </div>
-                      )}
-
-                      {version.validatedBy && (
-                        <div className="mt-3 p-3 bg-gray-50 rounded-lg">
-                          <div className="flex items-center gap-2 text-sm">
-                            <CheckCircle className="w-4 h-4 text-green-600" />
-                            <span className="text-gray-600">Validé par:</span>
-                            <span className="font-medium">{version.validatedBy}</span>
-                          </div>
-                          {version.comments && (
-                            <p className="text-sm text-gray-600 mt-2">{version.comments}</p>
-                          )}
-                        </div>
-                      )}
                     </div>
                   </div>
-                  
-                  <div className="flex flex-col items-end gap-3">
-                    <div className="flex items-center gap-2">
-                      {getStatusIcon(version.status)}
-                      <Badge className={getStatusColor(version.status)}>
-                        {version.status}
-                      </Badge>
-                    </div>
+                </CardHeader>
+                <CardContent className="pt-0">
+                  <div className="space-y-4">
+                    <p className="text-gray-700 text-sm leading-relaxed bg-gray-50 p-3 rounded-md">
+                      {version.changes}
+                    </p>
                     
-                    <div className="flex gap-2">
-                      <Button variant="outline" size="sm">
-                        <Eye className="w-4 h-4 mr-1" />
-                        Voir
-                      </Button>
-                      <Button variant="outline" size="sm">
-                        <Download className="w-4 h-4 mr-1" />
-                        Exporter
-                      </Button>
-                      <Button variant="ghost" size="sm">
-                        <GitCompare className="w-4 h-4 mr-1" />
-                        Comparer
-                      </Button>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                      <div className="space-y-2">
+                        <div className="flex items-center gap-2 text-sm">
+                          <User className="w-4 h-4 text-blue-500" />
+                          <span className="text-gray-600">Auteur:</span>
+                          <span className="font-semibold text-gray-900">{version.author}</span>
+                        </div>
+                        <div className="flex items-center gap-2 text-sm">
+                          <Building className="w-4 h-4 text-purple-500" />
+                          <span className="text-gray-600">Institution:</span>
+                          <span className="font-semibold text-gray-900">{version.institution}</span>
+                        </div>
+                        <div className="flex items-center gap-2 text-sm">
+                          <Calendar className="w-4 h-4 text-green-500" />
+                          <span className="text-gray-600">Date:</span>
+                          <span className="font-semibold text-gray-900">{version.date}</span>
+                        </div>
+                      </div>
+                      <div className="space-y-2">
+                        <div className="flex items-center gap-2 text-sm">
+                          <MapPin className="w-4 h-4 text-orange-500" />
+                          <span className="text-gray-600">Wilaya:</span>
+                          <span className="font-semibold text-gray-900">{version.wilaya}</span>
+                        </div>
+                        <div className="flex items-center gap-2 text-sm">
+                          <FileText className="w-4 h-4 text-indigo-500" />
+                          <span className="text-gray-600">Résultats:</span>
+                          <span className="font-semibold text-gray-900">{version.resultsCount}</span>
+                        </div>
+                        <div className="flex items-center gap-2 text-sm">
+                          <Filter className="w-4 h-4 text-red-500" />
+                          <span className="text-gray-600">Filtres:</span>
+                          <span className="font-semibold text-gray-900">{version.filtersUsed}</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    {version.searchDuration && (
+                      <div className="flex items-center justify-between p-3 bg-blue-50 rounded-md">
+                        <div className="flex items-center gap-3 text-sm">
+                          <Clock className="w-4 h-4 text-blue-500" />
+                          <span className="text-gray-700">Durée: <span className="font-semibold">{version.searchDuration}</span></span>
+                        </div>
+                        <span className="text-sm text-gray-600">Dernier accès: {version.lastAccessed}</span>
+                      </div>
+                    )}
+
+                    {version.validatedBy && (
+                      <div className="p-3 bg-green-50 border border-green-200 rounded-md">
+                        <div className="flex items-center gap-2 text-sm mb-2">
+                          <CheckCircle className="w-4 h-4 text-green-600" />
+                          <span className="text-gray-700">Validé par:</span>
+                          <span className="font-semibold text-green-800">{version.validatedBy}</span>
+                        </div>
+                        {version.comments && (
+                          <p className="text-sm text-gray-700 italic pl-6">{version.comments}</p>
+                        )}
+                      </div>
+                    )}
+
+                    <div className="flex items-center justify-between pt-3 border-t border-gray-100">
+                      <div className="flex items-center gap-2">
+                        {getStatusIcon(version.status)}
+                        <Badge className={getStatusColor(version.status)}>
+                          {version.status}
+                        </Badge>
+                      </div>
+                      
+                      <div className="flex gap-2">
+                        <Button variant="outline" size="sm" className="text-xs">
+                          <Eye className="w-3 h-3 mr-1" />
+                          Voir
+                        </Button>
+                        <Button variant="outline" size="sm" className="text-xs">
+                          <Download className="w-3 h-3 mr-1" />
+                          Export
+                        </Button>
+                        <Button variant="ghost" size="sm" className="text-xs">
+                          <GitCompare className="w-3 h-3 mr-1" />
+                          Comparer
+                        </Button>
+                      </div>
                     </div>
                   </div>
-                </div>
-              </div>
+                </CardContent>
+              </Card>
             ))}
           </div>
 

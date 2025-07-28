@@ -629,7 +629,7 @@ export function ProcedureCatalogTab({ onAddProcedure, onOpenApprovalQueue }: Pro
       </Card>
 
       {/* Liste des procédures */}
-      <div className="space-y-4">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
         {filteredProcedures.map((procedure) => (
           <Card key={procedure.id} className="hover:shadow-md transition-shadow">
             <CardContent className="p-6">
