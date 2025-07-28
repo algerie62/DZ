@@ -402,7 +402,7 @@ export function LegalTextsSearchHistoryTab() {
           </CardTitle>
         </CardHeader>
         <CardContent>
-          <div className="space-y-4">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
             {filteredVersions.map((version) => (
               <div key={version.id} className="border rounded-lg p-6 hover:shadow-md transition-shadow">
                 <div className="flex items-start justify-between mb-4">

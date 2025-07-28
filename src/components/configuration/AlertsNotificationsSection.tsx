@@ -473,7 +473,7 @@ export function AlertsNotificationsSection({ language = "fr" }: AlertsNotificati
             </Button>
           </div>
 
-          <div className="space-y-3">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
             {alertTypes.map((type) => (
               <Card key={type.id}>
                 <CardContent className="pt-4">
@@ -517,7 +517,7 @@ export function AlertsNotificationsSection({ language = "fr" }: AlertsNotificati
             </Button>
           </div>
 
-          <div className="space-y-3">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
             {alertChannels.map((channel) => (
               <Card key={channel.id}>
                 <CardContent className="pt-4">

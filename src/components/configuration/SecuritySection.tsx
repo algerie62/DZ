@@ -285,7 +285,7 @@ export function SecuritySection({ language = "fr" }: SecuritySectionProps) {
             </div>
           </div>
 
-          <div className="space-y-3">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
             {detectedThreats.map((threat, index) => (
               <Card key={index}>
                 <CardContent className="pt-4">

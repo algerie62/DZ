@@ -52,7 +52,7 @@ export function RealtimeAnnotationsTab() {
           </CardTitle>
         </CardHeader>
         <CardContent>
-          <div className="space-y-4">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
             {realtimeAnnotations.map((annotation) => (
               <div key={annotation.id} className="border rounded-lg p-4 hover:bg-gray-50">
                 <div className="flex items-start justify-between mb-3">

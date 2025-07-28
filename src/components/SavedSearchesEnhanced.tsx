@@ -35,13 +35,15 @@ export function SavedSearchesEnhanced() {
 
       <StatisticsCards savedSearches={savedSearches} />
 
-      <div className="space-y-4">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
         {filteredSearches.length > 0 ? (
           filteredSearches.map((search) => (
             <SavedSearchCard key={search.id} search={search} />
           ))
         ) : (
-          <EmptyState />
+          <div className="col-span-full">
+            <EmptyState />
+          </div>
         )}
       </div>
     </div>

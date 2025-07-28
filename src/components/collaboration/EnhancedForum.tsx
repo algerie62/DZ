@@ -221,7 +221,7 @@ export function EnhancedForum() {
           <TabsTrigger value="resolved">Résolues</TabsTrigger>
         </TabsList>
 
-        <TabsContent value="all" className="space-y-4">
+        <TabsContent value="all" className="grid grid-cols-1 lg:grid-cols-2 gap-4">
           {filteredDiscussions.map((discussion) => (
             <Card key={discussion.id} className="hover:shadow-md transition-shadow">
               <CardContent className="pt-6">
@@ -270,7 +270,7 @@ export function EnhancedForum() {
           ))}
         </TabsContent>
 
-        <TabsContent value="popular" className="space-y-4">
+        <TabsContent value="popular" className="grid grid-cols-1 lg:grid-cols-2 gap-4">
           {forumData
             .sort((a, b) => b.views - a.views)
             .slice(0, 5)
@@ -323,7 +323,7 @@ export function EnhancedForum() {
             ))}
         </TabsContent>
 
-        <TabsContent value="recent" className="space-y-4">
+        <TabsContent value="recent" className="grid grid-cols-1 lg:grid-cols-2 gap-4">
           {forumData
             .sort((a, b) => new Date(b.lastActivity).getTime() - new Date(a.lastActivity).getTime())
             .slice(0, 5)
@@ -376,7 +376,7 @@ export function EnhancedForum() {
             ))}
         </TabsContent>
 
-        <TabsContent value="resolved" className="space-y-4">
+        <TabsContent value="resolved" className="grid grid-cols-1 lg:grid-cols-2 gap-4">
           {forumData
             .filter(discussion => discussion.status === 'resolved')
             .map((discussion) => (

@@ -125,9 +125,11 @@ export function LegalTextsCatalogTab({ onAddLegalText, onOpenApprovalQueue }: Le
       <LegalTextsFilter onFilterChange={handleFilterChange} />
 
       {/* Liste des textes juridiques filtrés */}
-      <div className="space-y-4">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
         {processedTexts.length === 0 ? (
-          <LegalTextsEmptyState />
+          <div className="col-span-full">
+            <LegalTextsEmptyState />
+          </div>
         ) : (
           processedTexts.map((text) => (
             <LegalTextCard key={text.id} text={text as any} />

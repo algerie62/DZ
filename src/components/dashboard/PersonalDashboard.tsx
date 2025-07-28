@@ -239,7 +239,7 @@ export function PersonalDashboard() {
               <TabsTrigger value="recentDocuments">Documents récents</TabsTrigger>
             </TabsList>
 
-            <TabsContent value="recentActivity" className="space-y-4 mt-6">
+            <TabsContent value="recentActivity" className="grid grid-cols-1 lg:grid-cols-2 gap-4 mt-6">
               {recentActivity.map((activity) => (
                 <div key={activity.id} className="flex items-start gap-3 p-3 rounded-lg hover:bg-gray-50 transition-colors">
                   <div className="w-8 h-8 bg-green-100 rounded-lg flex items-center justify-center flex-shrink-0">
@@ -264,7 +264,7 @@ export function PersonalDashboard() {
               ))}
             </TabsContent>
 
-            <TabsContent value="notifications" className="space-y-4 mt-6">
+            <TabsContent value="notifications" className="grid grid-cols-1 lg:grid-cols-2 gap-4 mt-6">
               {notifications.map((notification) => (
                 <div key={notification.id} className={`flex items-start gap-3 p-3 rounded-lg transition-colors ${notification.unread ? 'bg-blue-50 hover:bg-blue-100' : 'hover:bg-gray-50'}`}>
                   <div className="flex-shrink-0 mt-1">
@@ -284,7 +284,7 @@ export function PersonalDashboard() {
               ))}
             </TabsContent>
 
-            <TabsContent value="myTasks" className="space-y-4 mt-6">
+            <TabsContent value="myTasks" className="grid grid-cols-1 lg:grid-cols-2 gap-4 mt-6">
               {myTasks.map((task) => (
                 <div key={task.id} className="p-4 border rounded-lg hover:shadow-sm transition-shadow">
                   <div className="flex items-start justify-between mb-3">
@@ -321,7 +321,7 @@ export function PersonalDashboard() {
               ))}
             </TabsContent>
 
-            <TabsContent value="recentDocuments" className="space-y-4 mt-6">
+            <TabsContent value="recentDocuments" className="grid grid-cols-1 lg:grid-cols-2 gap-4 mt-6">
               {recentDocuments.map((doc) => (
                 <div key={doc.id} className="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-50 transition-colors">
                   <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">

@@ -134,7 +134,7 @@ export function UserManagementSection({ language = "fr" }: UserManagementSection
             </Button>
           </div>
           
-          <div className="space-y-3">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
             {users.map((user, index) => (
               <Card key={index}>
                 <CardContent className="pt-4">
@@ -297,7 +297,7 @@ export function UserManagementSection({ language = "fr" }: UserManagementSection
             </div>
           </div>
           
-          <div className="space-y-3">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
             {activeSessions.map((session, index) => (
               <Card key={index}>
                 <CardContent className="pt-4">

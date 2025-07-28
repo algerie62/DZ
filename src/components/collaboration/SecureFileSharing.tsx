@@ -255,7 +255,7 @@ export function SecureFileSharing() {
           <TabsTrigger value="templates">Modèles</TabsTrigger>
         </TabsList>
 
-        <TabsContent value="all" className="space-y-4">
+        <TabsContent value="all" className="grid grid-cols-1 lg:grid-cols-2 gap-4">
           {filteredResources.map((resource) => {
             const TypeIcon = getTypeIcon(resource.type);
             return (

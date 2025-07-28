@@ -54,7 +54,7 @@ export function LegalTextsFeatured() {
         <Star className="w-6 h-6 text-yellow-500" />
         <h3 className="text-xl font-semibold text-gray-900">Textes juridiques en vedette</h3>
       </div>
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
         {featuredTexts.map((text) => (
           <Card key={text.id} className="hover:shadow-md transition-shadow">
             <CardHeader className="pb-3">
